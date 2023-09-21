@@ -1,1 +1,48 @@
-This is Jenkins Server installation on AWS Linux 2023
+#This is Jenkins Server installation on AWS Linux 2023
+
+Steps
+1.	Create an Amazon Linux 2023 Instance
+2.	Open Port 8080 and 22 in EC2 Security Group
+3.	SSH into your Amazon Linux 2023 Instance
+4.	Run System Update
+
+sudo dnf update
+
+5.	Install Java 11 on Amazon Linux 2023
+
+sudo dnf install java-11-amazon-corretto -y
+
+java –version
+
+6.	Add Jenkins Repository
+
+sudo wget -O /etc/yum.repos.d/jenkins.repo \
+    https://pkg.jenkins.io/redhat-stable/jenkins.repo
+
+7.	Import Key from Jenkins
+
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+
+8.	Install Jenkins on Amazon Linux 2023
+
+sudo dnf install jenkins -y
+
+9.	Verify Jenkins Installation
+
+jenkins --version
+
+10.	Start and Enable Jenkins
+
+sudo systemctl start jenkins
+
+sudo systemctl enable jenkins
+
+sudo systemctl status jenkins
+
+11.	Access Jenkins over 8080
+
+http://yourPublicIP:8080
+
+12.	Customize Jenkins
+
+cat /var/lib/jenkins/secrets/initialAdminPassword
