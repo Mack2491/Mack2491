@@ -19,5 +19,11 @@ pipeline {
                 echo 'I am in Deploy Phase'
             }
         }
+        stage('Execute') {
+            steps {
+                echo 'I am in Execute Phase'
+                sh 'aws s3 ls'
+            }
+        }
     }
 }
