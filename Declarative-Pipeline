@@ -22,7 +22,7 @@ pipeline {
         stage('Execute') {
             steps {
                 echo 'I am in Execute Phase'
-                sh 'aws s3 ls'
+                build 'Stop-EC2'
             }
         }
     }
